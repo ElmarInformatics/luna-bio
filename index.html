@@ -159,6 +159,61 @@ div {
 }
 
 
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+.content{
+  height: 400px;
+  width: 750px;
+  position: relative;
+}
+.content .images{
+  height: 100%;
+  width: 100%;
+}
+.content .images img{
+  height: 100%;
+  width: 100%;
+}
+.btm-slides{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.btm-slides span{
+  height: 15px;
+  width: 50px;
+  border: 2px solid white;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.sliders{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  cursor: pointer;
+  border: 2px solid white;
+  background: rgba(255,255,255,0.1);
+}
+.sliders:hover{
+  background: rgba(255,255,255,0.2);
+}
+.right{
+  right: 0;
+}
+.sliders span{
+  line-height: 41px;
+  font-size: 35px;
+  color: white;
+}
+
 
 footer {
     background-color: plum;
@@ -264,119 +319,6 @@ opacity: 0.65;
 }
 
 
-.container {
-  max-width: 1200px;
-  width: 95%;
-}
-.slider-wrapper {
-  position: relative;
-
-}
-.slider-wrapper .slide-button {
-  position: absolute;
-  top: 50%;
-  outline: none;
-  border: none;
-  height: 50px;
-  width: 50px;
-  z-index: 5;
-  color: #fff;
-  display: flex;
-  cursor: pointer;
-  font-size: 2.2rem;
-  background: #000;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-.slider-wrapper .slide-button:hover {
-  background: #404040;
-}
-.slider-wrapper .slide-button#prev-slide {
-  left: -25px;
-  display: none;
-}
-.slider-wrapper .slide-button#next-slide {
-  right: -25px;
-}
-.slider-wrapper .image-list {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 18px;
-  font-size: 0;
-  list-style: none;
-  margin-bottom: 30px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.slider-wrapper .image-list::-webkit-scrollbar {
-  display: none;
-}
-.slider-wrapper .image-list .image-item {
-  width: 325px;
-  height: 400px;
-  object-fit: cover;
-}
-.container .slider-scrollbar {
-  height: 24px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.slider-scrollbar .scrollbar-track {
-  background: #ccc;
-  width: 100%;
-  height: 2px;
-  display: flex;
-  align-items: center;
-  border-radius: 4px;
-  position: relative;
-}
-.slider-scrollbar:hover .scrollbar-track {
-  height: 4px;
-}
-.slider-scrollbar .scrollbar-thumb {
-  position: absolute;
-  background: #000;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  height: 100%;
-  cursor: grab;
-  border-radius: inherit;
-}
-.slider-scrollbar .scrollbar-thumb:active {
-  cursor: grabbing;
-  height: 8px;
-  top: -2px;
-}
-.slider-scrollbar .scrollbar-thumb::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -10px;
-  bottom: -10px;
-}
-/* Styles for mobile and tablets */
-@media only screen and (max-width: 1023px) {
-  .slider-wrapper .slide-button {
-    display: none !important;
-  }
-  .slider-wrapper .image-list {
-    gap: 10px;
-    margin-bottom: 15px;
-    scroll-snap-type: x mandatory;
-  }
-  .slider-wrapper .image-list .image-item {
-    width: 280px;
-    height: 380px;
-  }
-  .slider-scrollbar .scrollbar-thumb {
-    width: 20%;
-  }
-}
 
 </style>
 <body class="körper">
@@ -404,32 +346,49 @@ opacity: 0.65;
         <br>
         <br>
         <br>
-        <div class="container">
-            <div class="slider-wrapper">
-              <button id="prev-slide" class="slide-button material-symbols-rounded">
-               left
-              </button>
-              <ul class="image-list">
-                <img class="image-item" src="lunabluse.jpg" alt="img-1" />
-                <img class="image-item" src="lunabluse2.jpg" alt="img-2" />
-                <img class="image-item" src="lunamouth.jpg" alt="img-3" />
-                <img class="image-item" src="lunana.jpg" alt="img-4" />
-                <img class="image-item" src="lunauwu.jpg" alt="img-5" />
-                <img class="image-item" src="LUNAMIRROW1.jpg" alt="img-6" />
-                <img class="image-item" src="lunamirrow2.jpg" alt="img-8" />
-                <img class="image-item" src="lunaspider1.jpg" alt="img-9" />
-                <img class="image-item" src="lunaspider2.jpg" alt="img-10" />
-              </ul>
-              <button id="next-slide" class="slide-button material-symbols-rounded">
-                right
-              </button>
-            </div>
-            <div class="slider-scrollbar">
-              <div class="scrollbar-track">
-                <div class="scrollbar-thumb"></div>
-              </div>
-            </div>
+        <div class="content">
+          <div class="images">
+             <img src="lunabluse.jpg">
+             <img src="lunabluse2.jpg">
+             <img src="lunana.jpg">
+             <img src="lunaspider1.jpg">
+             <img src="lunaspider2.jpg">
           </div>
+          <div class="btm-slides">
+             <span onclick="btm_slide(1)"></span>
+             <span onclick="btm_slide(2)"></span>
+             <span onclick="btm_slide(3)"></span>
+             <span onclick="btm_slide(4)"></span>
+             <span onclick="btm_slide(5)"></span>
+          </div>
+          <div class="sliders left" onclick="side_slide(-1)">
+             <span class="fas fa-angle-left"></span>
+          </div>
+          <div class="sliders right" onclick="side_slide(1)">
+             <span class="fas fa-angle-right"></span>
+          </div>
+       </div>
+       <script>
+          var indexValue = 1;
+          showImg(indexValue);
+          function btm_slide(e){showImg(indexValue = e);}
+          function side_slide(e){showImg(indexValue += e);}
+          function showImg(e){
+            var i;
+            const img = document.querySelectorAll('img');
+            const slider = document.querySelectorAll('.btm-slides span');
+            if(e > img.length){indexValue = 1}
+            if(e < 1){indexValue = img.length}
+            for(i = 0; i < img.length; i++){
+              img[i].style.display = "none";
+            }
+            for(i = 0; i < slider.length; i++){
+              slider[i].style.background = "rgba(255,255,255,0.1)";
+            }
+            img[indexValue-1].style.display = "block";
+            slider[indexValue-1].style.background = "white";
+          }
+       </script>
 
             <br>
             <br>
